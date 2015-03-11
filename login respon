@@ -1,0 +1,19 @@
+<?php
+include "conn.php";
+
+$sql = "SELECT * FROM `login` WHERE `username` = '".$_POST['username']."'";
+$query = mysql_query($sql, $db) or die(mysql_error());
+ 
+ if(mysql_num_rows($query) < 1) {
+ 	echo 'Login gagal';
+ } else {
+ 	$fetch = mysql_fetch_array($query);
+	if($fetch['password'] == $_POST['password']) {
+	session_start();
+	$_SESSION['user'] = $fetch['username'];
+	echo 'Login berhasil';
+	echo ' <a href="form.php">Klik disini</a> untuk kembali ke main menu';
+	}
+ }
+
+?>
