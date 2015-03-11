@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Internet Dreams</title>
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
+<!--[if IE]>
+<link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
+<![endif]-->
+
+<!--  jquery core -->
+<script src="js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
+ 
+<!--  checkbox styling script -->
+<script src="js/jquery/ui.core.js" type="text/javascript"></script>
+<script src="js/jquery/ui.checkbox.js" type="text/javascript"></script>
+<script src="js/jquery/jquery.bind.js" type="text/javascript"></script>
+<script src="../../SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	$('input').checkBox();
+	$('#toggle-all').click(function(){
+ 	$('#toggle-all').toggleClass('toggle-checked');
+	$('#mainform input[type=checkbox]').checkBox('toggle');
+	return false;
+	});
+});
+</script>  
+
+
+<![if !IE 7]>
+
+<!--  styled select box script version 1 -->
+<script src="js/jquery/jquery.selectbox-0.5.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.styledselect').selectbox({ inputClass: "selectbox_styled" });
+});
+</script>
+ 
+
+<![endif]>
+
+
+<!--  styled select box script version 2 --> 
+<script src="js/jquery/jquery.selectbox-0.5_style_2.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.styledselect_form_1').selectbox({ inputClass: "styledselect_form_1" });
+	$('.styledselect_form_2').selectbox({ inputClass: "styledselect_form_2" });
+});
+</script>
+
+<!--  styled select box script version 3 --> 
+<script src="js/jquery/jquery.selectbox-0.5_style_2.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.styledselect_pages').selectbox({ inputClass: "styledselect_pages" });
+});
+</script>
+
+<!--  styled file upload script --> 
+<script src="js/jquery/jquery.filestyle.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+	$("input.file_1").filestyle({ 
+	image: "images/forms/upload_file.gif",
+	imageheight : 29,
+	imagewidth : 78,
+	width : 300
+	});
+});
+</script>
+
+<!-- Custom jquery scripts -->
+<script src="js/jquery/custom_jquery.js" type="text/javascript"></script>
+ 
+<!-- Tooltips -->
+<script src="js/jquery/jquery.tooltip.js" type="text/javascript"></script>
+<script src="js/jquery/jquery.dimensions.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	$('a.info-tooltip ').tooltip({
+		track: true,
+		delay: 0,
+		fixPNG: true, 
+		showURL: false,
+		showBody: " - ",
+		top: -35,
+		left: 5
+	});
+});
+</script> 
+
+<!--  date picker script -->
+<link rel="stylesheet" href="css/datePicker.css" type="text/css" />
+<link href="../../SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body,td,th {
+	color: #00FF33;
+	background-color: #999;
+}
+</style>
+<script src="js/jquery/date.js" type="text/javascript"></script>
+<script src="js/jquery/jquery.datePicker.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+        $(function()
+{
+
+// initialise the "Select date" link
+$('#date-pick')
+	.datePicker(
+		// associate the link with a date picker
+		{
+			createButton:false,
+			startDate:'01/01/2005',
+			endDate:'31/12/2020'
+		}
+	).bind(
+		// when the link is clicked display the date picker
+		'click',
+		function()
+		{
+			updateSelects($(this).dpGetSelected()[0]);
+			$(this).dpDisplay();
+			return false;
+		}
+	).bind(
+		// when a date is selected update the SELECTs
+		'dateSelected',
+		function(e, selectedDate, $td, state)
+		{
+			updateSelects(selectedDate);
+		}
+	).bind(
+		'dpClosed',
+		function(e, selected)
+		{
+			updateSelects(selected[0]);
+		}
+	);
+	
+var updateSelects = function (selectedDate)
+{
+	var selectedDate = new Date(selectedDate);
+	$('#d option[value=' + selectedDate.getDate() + ']').attr('selected', 'selected');
+	$('#m option[value=' + (selectedDate.getMonth()+1) + ']').attr('selected', 'selected');
+	$('#y option[value=' + (selectedDate.getFullYear()) + ']').attr('selected', 'selected');
+}
+// listen for when the selects are changed and update the picker
+$('#d, #m, #y')
+	.bind(
+		'change',
+		function()
+		{
+			var d = new Date(
+						$('#y').val(),
+						$('#m').val()-1,
+						$('#d').val()
+					);
+			$('#date-pick').dpSetSelected(d.asString());
+		}
+	);
+
+// default the position of the selects to today
+var today = new Date();
+updateSelects(today.getTime());
+
+// and update the datePicker to reflect it...
+$('#d').trigger('change');
+});
+</script>
+
+<!-- MUST BE THE LAST SCRIPT IN <HEAD></HEAD></HEAD> png fix -->
+<script src="js/jquery/jquery.pngFix.pack.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$(document).pngFix( );
+});
+</script>
+</head>
+<body> 
+<!-- Start: page-top-outer -->
+<div id="page-top-outer">    
+
+<!-- Start: page-top -->
+<div id="page-top">
+
+	<!-- start logo -->
+	<div id="logo">
+	<a href=""><img src="images/shared/logo.png" width="229" height="49" alt="" /></a>
+	</div><label></label>
+
+	<!-- end logo -->
+	
+	<!--  start top-search -->
+	<div id="top-search">
+		<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+		<td><input type="text" value="Search" onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" /></td>
+		<td>
+		 
+		<select  class="styledselect">
+			<option value="">All</option>
+			<option value="">Products</option>
+			<option value="">Categories</option>
+			<option value="">Clients</option>
+			<option value="">News</option>
+		</select> 
+		 
+		</td>
+		<td>
+		<input type="image" src="images/shared/top_search_btn.gif"  />
+		</td>
+		</tr>
+		</table>
+	</div>
+ 	<!--  end top-search -->
+ 	<div class="clear"></div>
+
+</div>
+<!-- End: page-top -->
+
+</div>
+<!-- End: page-top-outer -->
+	
+<div class="clear">&nbsp;</div>
+ 
+<!--  start nav-outer-repeat................................................................................................. START -->
+<div class="nav-outer-repeat"> 
+<!--  start nav-outer -->
+<div class="nav-outer"> 
+
+		<!-- start nav-right -->
+		<div id="nav-right">
+		
+			<div class="nav-divider">&nbsp;</div>
+			<div class="showhide-account"><img src="images/shared/nav/nav_myaccount.gif" width="93" height="14" alt="" /></div>
+			<div class="nav-divider">&nbsp;</div>
+			<a href="" id="logout"><img src="images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
+			<div class="clear">&nbsp;</div>
+		
+			<!--  start account-content -->	
+			<div class="account-content">
+			<div class="account-drop-inner">
+				<a href="" id="acc-settings">Settings</a>
+				<div class="clear">&nbsp;</div>
+				<div class="acc-line">&nbsp;</div>
+				<a href="" id="acc-details">Personal details </a>
+				<div class="clear">&nbsp;</div>
+				<div class="acc-line">&nbsp;</div>
+				<a href="" id="acc-project">Project details</a>
+				<div class="clear">&nbsp;</div>
+				<div class="acc-line">&nbsp;</div>
+				<a href="" id="acc-inbox">Inbox</a>
+				<div class="clear">&nbsp;</div>
+				<div class="acc-line">&nbsp;</div>
+				<a href="" id="acc-stats">Statistics</a> 
+			</div>
+			</div>
+			<!--  end account-content -->
+		
+		</div>
+		<!-- end nav-right -->
+
+
+		<!--  start nav -->
+		<div class="nav">
+		<div class="table">
+		
+		<ul class="select">
+		  <li><a href="#nogo"><b>Informasi</b><!--[if IE 7]><!--></a><!--<![endif]-->
+		<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<div class="select_sub">
+			
+		</div>
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+		</li>
+		</ul>
+		
+		<div class="nav-divider">&nbsp;</div>
+		                    
+		<ul class="current">
+		  <li><a href="#nogo"><b>Review</b><!--[if IE 7]><!--></a><!--<![endif]-->
+		<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+		</li>
+		</ul>
+		
+		<div class="nav-divider">&nbsp;</div>
+		
+		<ul class="select">
+		  <li><a href="#nogo"><!--[if IE 7]><!-->
+		    <strong>Rekomendasi</strong></a>
+		    <!--<![endif]-->
+		<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<div class="select_sub">
+			
+		</div>
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+		</li>
+		</ul>
+		
+		<div class="nav-divider">&nbsp;</div>
+		
+		<ul class="select"><li><!--<![endif]-->
+		<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<div class="select_sub">
+			<ul class="sub">
+				<li><a href="#nogo">Clients Details 1</a></li>
+				<li><a href="#nogo">Clients Details 2</a></li>
+				<li><a href="#nogo">Clients Details 3</a></li>
+			 
+			</ul>
+		</div>
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+		</li>
+		</ul>
+		
+		<div class="nav-divider">&nbsp;</div>
+		
+		<ul class="select"><li><!--<![endif]-->
+		<!--[if lte IE 6]><table><tr><td><![endif]-->
+		<div class="select_sub">
+			<ul class="sub">
+				<li><a href="#nogo">News details 1</a></li>
+				<li><a href="#nogo">News details 2</a></li>
+				<li><a href="#nogo">News details 3</a></li>
+			</ul>
+		</div>
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+		</li>
+		</ul>
+		
+		<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		</div>
+		<!--  start nav -->
+
+</div>
+<div class="clear"></div>
+<!--  start nav-outer -->
+</div>
+<!--  start nav-outer-repeat................................................... END -->
+ 
+ <div class="clear"></div>
+ 
+<!-- start content-outer -->
+<div id="content-outer">
+
+<!-- start content -->
+<div id="content">
+	<form name="tambah_info" method="post" action="">
+		<table>
+		
+			<tr>
+				<td>
+					<label>ID Tempat Servis:</label>
+				</<td>
+				<td>:</td>
+				<td>
+					<input type="text" name="ID" id="ID" />
+				</td>
+			</tr>
+	  
+			<tr>
+				<td>
+					<label for="ID">Nama Tempat Servis</label>
+				</td>
+				<td>:</td>
+				<td>
+					<input type="text" name="nama_servis_motor" id="nama_servis_motor" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="nama_servis_motor">Lokasi Tempat Servis :</label>
+				</td>
+				<td>:</td>
+				<td>
+					<input type="text" name="lokasi_servis" id="lokasi_servis" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+				  <label for="lokasi_servis">Jasa :</label>
+				</td>
+				<td>:</td>
+				<td>
+					<label>
+					<input type="checkbox" name="jasa " value="checkbox" id="jasa_0" />
+					tambal ban
+					</label>
+					
+					<br />
+					
+					<label>
+					<input type="checkbox" name="jasa " value="checkbox" id="jasa_1" />
+					ganti oli
+					</label>
+					
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="biaya">Biaya Servis :</label>
+				</td>
+				<td>:</td>
+				<td>
+					<input type="text" name="biaya" id="biaya" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="jenis_kepemilikan">Jenis Kepemilikan :</label>
+				</td>
+				<td>:</td>
+				<td>
+					<label>
+					<input type="radio" name="jenis_kepemilikan" value="radio" id="RadioGroup1_0" />
+					Resmi
+					</label>
+					
+					<br />
+					
+					<label>
+					<input type="radio" name="jenis_kepemilika" value="radio" id="RadioGroup1_1" />
+					Non-Resmi
+					</label>
+				</td>
+			<tr>
+				<td>
+					<label for="jam_buka">Jam Buka</label>
+				</td>
+				<td>:</td>
+				<td>
+					<label>
+					<input type="radio" name="jam_buka" value="radio" id="RadioGroup2_0" />
+					07.00-15.00
+					</label>
+					
+					<br />
+					
+					<label>
+					<input type="radio" name="jam_buka" value="radio" id="RadioGroup2_1" />
+					08.00-16.30
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="rekomendasi">Rekomendasi</label>
+				</td>
+				<td>:</td>
+				<td>
+					<textarea name="rekomendasi" id="rekomendasi" cols="45" rows="5"></textarea>
+				</td>
+			</td>
+			<tr>
+				<td>
+					<label for="review">Review : </label>
+				</td>
+				<td>:</td>
+				<td>
+					<textarea name="review" id="review" cols="45" rows="5"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="rating">Rating : </label>
+				</td>
+				<td>:</td>
+				<td>
+					<label>
+					<input type="radio" name="rating" value="radio" id="rating_0" />
+					1
+					</label>
+					
+					<br />
+					
+					<label>
+					<input type="radio" name="rating" value="radio" id="rating_1" />
+					2
+					</label>
+					
+					<br />
+					
+					<label>
+					<input type="radio" name="rating" value="radio" id="rating_2" />
+					3
+					</label>
+					
+					<br />
+					
+					<label>
+					<input type="radio" name="rating" value="radio" id="rating_3" />
+					4
+					</label>
+					
+					<br />
+					
+					<label>
+					<input type="radio" name="rating" value="radio" id="rating_4" />
+					5
+					</label>
+				</td>
+			</tr>
+			<!--
+			<p class="sized">&nbsp; </p>
+			<p class="sized">&nbsp;</p>
+
+			<p><span id="sprytextfield1">
+			<label for="info"></label>
+			<span class="textfieldRequiredMsg">A value i</span></span>  </p>
+			-->
+			<tr>
+				<td></td>
+				<td></td>
+				<td>
+				<input type="submit" name="hapus_info" id="hapus_info" value="Simpan" />
+				</td>
+			</tr>
+			<!--
+			<p class="sized">&nbsp; </p>
+			<p></p>
+			-->
+		</table>
+	</form>
+
+<!--  end content -->
+<div class="clear">&nbsp;</div>
+</div>
+
+<!--  end content-outer -->
+<div class="clear">&nbsp;</div>
+    
+<!-- start footer --><!-- end footer -->
+<script type="text/javascript">
+var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
+</script>
+</body>
+</html>
